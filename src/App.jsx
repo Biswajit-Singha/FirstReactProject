@@ -1,9 +1,12 @@
 import './App.css'
+import Root from './components/Root'
 
 function App() {
 
   return (
-    <div> I'm From Proggramer Rajat </div>
+    <div>
+      <Root />
+       </div>
   )
 }
 
