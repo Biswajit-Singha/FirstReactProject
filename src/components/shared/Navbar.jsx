@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Links, useLocation } from "react-router-dom";
 
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink,setActiveLink] = useState('/')
+  const [activeLink, setActiveLink] = useState('/')
   const location = useLocation();
 
   useEffect(() => {
     setActiveLink(location.pathname || '/');
-  },[location.pathname]);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   }
 
   const handleLinkClick = (path) => {
-      setActiveLink(path);
+    setActiveLink(path);
   }
 
   return (
@@ -41,18 +41,18 @@ function Navbar() {
             <Link
               to={'/'}
               onClick={() => handleLinkClick('/')}
-               className={`${activeLink === '/' ? 'text-red-600' : 'hover:text-green-300'}`}
-               >
+              className={`${activeLink === '/' ? 'text-red-600' : 'hover:text-green-300'}`}
+            >
               Home
             </Link>
           </li>
 
           <li>
             <Link
-              to={'/products'} 
-              onClick={ () => handleLinkClick('/products')}
+              to={'/products'}
+              onClick={() => handleLinkClick('/products')}
               className={`${activeLink === '/products' ? 'text-red-600' : 'hover:text-green-300'}`}
-              >
+            >
               Products
             </Link>
           </li>
@@ -62,7 +62,7 @@ function Navbar() {
               to={'/blogs'}
               onClick={() => handleLinkClick('/blogs')}
               className={`${activeLink === '/blogs' ? 'text-red-600' : 'hover:text-green-300'}`}
-              >
+            >
               Blogs
             </Link>
           </li>
@@ -70,26 +70,29 @@ function Navbar() {
           <li>
             <Link
               to={'/contact'}
-              onClick={() => handleLinkClick('/contact')} 
+              onClick={() => handleLinkClick('/contact')}
               className={`${activeLink === '/contact' ? 'text-red-600' : 'hover:text-green-300'}`}
-              >
+            >
               Contact
             </Link>
           </li>
 
           <li>
             <Link
-              to={'/about'} 
-              onClick={() => handleLinkClick('/about')} 
+              to={'/about'}
+              onClick={() => handleLinkClick('/about')}
               className={`${activeLink === '/about' ? 'text-red-600' : 'hover:text-green-300'}`}
-              >
+            >
               About
             </Link>
           </li>
 
         </ul>
-        
-        <button className="hidden md:block bg-white text-black px-5 py-2 rounded cursor-pointer hover:bg-slate-400"> Login </button>
+
+        <Link to={'/login'}>
+          <button className="hidden md:block bg-white text-black px-5 py-2 rounded cursor-pointer hover:bg-slate-400"> Login </button>
+        </Link>
+
 
         {/* Mobile Menu Collapsed */}
         <div className={`md:hidden w-full absolute bg-green-600 top-full left-0 ${isOpen ? 'block' : 'hidden'}`}>
