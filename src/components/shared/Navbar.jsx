@@ -22,12 +22,13 @@ function Navbar() {
   }
 
   return (
-    <nav className="bg-green-800 text-white py-4 md:py-8 sticky top-0 z-10 border-b-2 border-green-500">
+    <div>
+    <nav className="bg-black/50 text-white py-2 md:py-8 fixed w-full top-0" >
       <div className="container mx-auto flex justify-between items-center">
         <h3 className="text-xl font-bold "> Simple React</h3>
-
+      
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden ml-auto">
           <button onClick={toggleMenu}>
             {
               isOpen ? <IoClose /> : <FaBars />
@@ -86,16 +87,21 @@ function Navbar() {
               About
             </Link>
           </li>
-
-        </ul>
-
-        <Link to={'/login'}>
+           <Link to={'/base'}>
           <button className="hidden md:block bg-white text-black px-5 py-2 rounded cursor-pointer hover:bg-slate-400"> Login </button>
         </Link>
 
+        </ul>
+
+         <Link to={'/base'}>
+          <button className="hidden md:block bg-white text-black px-5 py-2 rounded cursor-pointer hover:bg-slate-400"> Login </button>
+        </Link>
+
+       
+
 
         {/* Mobile Menu Collapsed */}
-        <div className={`md:hidden w-full absolute bg-green-600 top-full left-0 ${isOpen ? 'block' : 'hidden'}`}>
+        <div className={`md:hidden w-full absolute bg-green-950 top-full left-0 ${isOpen ? 'block' : 'hidden'}`}>
           <ul className="flex flex-col items-center py-4 space-y-2">
             <li className="hover:text-green-500">Home</li>
             <li className="hover:text-green-500">Practices</li>
@@ -108,6 +114,8 @@ function Navbar() {
         </div>
       </div>
     </nav>
+     
+        </div>
   )
 }
 
